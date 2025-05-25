@@ -338,10 +338,32 @@ export default function HomeScreen() {
               {locations.length > 0 && showSearchBar && (
                 <View
                   className="absolute w-full top-16 rounded-3xl"
-                  style={{
+                  style={{ 
+                    maxHeight: 200,
                     backgroundColor: colors.cardBackground,
                   }}
                 >
+                <ScrollView
+                    keyboardShouldPersistTaps="handled"
+                    nestedScrollEnabled
+                  >
+                    {locations.map((loc, index) => (
+                      <TouchableOpacity
+                        key={index}
+                        onPress={() => handleLocation(loc)}
+                        className="p-3 border-b border-neutral-300 dark:border-neutral-600"
+                        style={{
+                          backgroundColor: colors.cardBackground,
+                        }}
+                        accessibilityLabel={`Select ${loc.name}, ${loc.country}`}
+                      >
+                        <Text style={{ color: colors.text }} className="text-base">
+                          {loc.name}, {loc.country}
+                        </Text>
+                      </TouchableOpacity>
+                    ))}
+                  </ScrollView>
+
                   {locations.map((loc, index) => {
                     const showBorder = index + 1 !== locations.length;
                     return (
