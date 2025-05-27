@@ -1,6 +1,8 @@
 # Weather App
 
-
+ 312g
+ Eldar Elkeev
+ Zhumagul Nabi
 
 ---
 
